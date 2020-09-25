@@ -1,0 +1,22 @@
+<h2>Crear Receta</h2>
+<form>
+    <div class="form-group">
+        <label for="nombreReceta" style="margin-right: 3px;">Nombre de la Receta</label>
+        <input name="nombre" type="text" class="from-control" id="nombreReceta" placeholder="Ingrese el nombre"
+            [(ngModel)]="receta.nombre">
+    </div>
+    <div class="form-group">
+        <label for="tipoReceta" style="margin-right: 3px;">Tipo de la Receta</label>
+        <input name="description" type="text" class="from-control" id="tipoReceta" placeholder="Ingrese el tipo"
+            [(ngModel)]="receta.tipo">
+    </div>
+    <div class="form-group">
+        <label for="seleccionIngrediente">Selecciona un ingrediente</label>
+        <select name="nombreIngrediente" id="seleccionIngrediente" class="form-control"
+            [(ngModel)]="receta.ingredienteId">
+            <option *ngFor="let ingrediente of ingredientes" [value]="ingrediente.id">{{ ingrediente.nombre }}</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="crearReceta()">Save</button>
+    <button type="submit" class="btn btn-light" (click)="cancelar()">Cancel</button>
+</form>
